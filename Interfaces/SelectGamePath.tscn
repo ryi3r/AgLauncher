@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx8fl81ivbjoj"]
+
+[ext_resource type="Script" uid="uid://h20lya2pprpw" path="res://Interfaces/SelectGamePath.cs" id="1_shdyx"]
+
+[node name="SelectGamePath" type="FileDialog"]
+title = "Open a Directory"
+initial_position = 1
+size = Vector2i(800, 600)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+show_hidden_files = true
+script = ExtResource("1_shdyx")

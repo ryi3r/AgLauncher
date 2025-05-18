@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://87uaksqb1rd5"]
+
+[ext_resource type="Script" uid="uid://jrqqq8ridy2e" path="res://Interfaces/LauncherStartup/EntryProgress.cs" id="1_rn7mg"]
+
+[node name="EntryProgress" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1249.0
+offset_bottom = -697.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sample Text"
+script = ExtResource("1_rn7mg")
+
+[node name="Status" type="Label" parent="."]
+layout_mode = 2
+offset_left = 103.0
+offset_right = 126.0
+offset_bottom = 23.0
+text = "..."

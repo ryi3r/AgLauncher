@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpi6csnhnm708"]
+
+[ext_resource type="Script" uid="uid://bkn8t6tvakrri" path="res://Interfaces/LauncherStartup/LauncherStartup.cs" id="1_qgq6k"]
+
+[sub_resource type="Gradient" id="Gradient_qgq6k"]
+offsets = PackedFloat32Array(0, 0.69281, 0.997821)
+colors = PackedColorArray(0, 0, 0, 1, 0.0557123, 0.0602208, 0.194993, 1, 0.142146, 0.151524, 0.42075, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_horma"]
+noise_type = 5
+frequency = 0.005
+fractal_type = 2
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_txrdd"]
+width = 1340
+height = 720
+color_ramp = SubResource("Gradient_qgq6k")
+noise = SubResource("FastNoiseLite_horma")
+
+[node name="LauncherStartup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qgq6k")
+
+[node name="Bgnd" type="Sprite2D" parent="."]
+texture = SubResource("NoiseTexture2D_txrdd")
+centered = false
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Starting up..."
+
+[node name="Separator" type="HSeparator" parent="VBox"]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="VBox/Scroll"]
+layout_mode = 2

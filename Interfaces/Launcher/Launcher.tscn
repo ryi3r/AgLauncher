@@ -1,0 +1,161 @@
+[gd_scene load_steps=17 format=3 uid="uid://2d5t40emmx5w"]
+
+[ext_resource type="Texture2D" uid="uid://cw20vgg6gguj4" path="res://Assets/Configuration.svg" id="3_iluoy"]
+[ext_resource type="Script" uid="uid://cw7wkh4hybbb4" path="res://Interfaces/Launcher/LauncherData.cs" id="3_v75je"]
+[ext_resource type="Texture2D" uid="uid://cfvnxg5v501n" path="res://template_texture.tres" id="5_iluoy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy33k"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rk7jo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tif27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p7gw6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eokwe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rqmd8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppwjn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dal35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivud7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_an4ua"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s25yt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68xp0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80vpd"]
+bg_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Main" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+script = ExtResource("3_v75je")
+metadata/_edit_vertical_guides_ = [54.0, 60.0, 6.0]
+metadata/_edit_horizontal_guides_ = [691.0, 706.0, 676.0, 652.0, 573.0, 578.0, 647.0]
+
+[node name="Games" type="Panel" parent="."]
+z_index = 5
+custom_minimum_size = Vector2(60, 720)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gy33k")
+
+[node name="Scroll" type="ScrollContainer" parent="Games"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBox" type="VBoxContainer" parent="Games/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Configuration" type="Button" parent="Games"]
+texture_filter = 6
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = -45.0
+offset_right = 535.0
+offset_bottom = 475.0
+grow_vertical = 0
+scale = Vector2(0.06, 0.06)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rk7jo")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tif27")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_p7gw6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_eokwe")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_rqmd8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ppwjn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dal35")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ivud7")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_an4ua")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_s25yt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_68xp0")
+icon = ExtResource("3_iluoy")
+
+[node name="Data" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Background" type="TextureRect" parent="Data"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_iluoy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Info" type="Panel" parent="Data"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -187.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 58.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_80vpd")
+
+[node name="Version" type="Label" parent="Data/Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "(Game Name) 1.2.3
+Installed Ver. 1.2.3"
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="Data"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -50.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Download Game"
+
+[connection signal="pressed" from="Games/Configuration" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="Data/Button" to="." method="OnDownloadPressed"]

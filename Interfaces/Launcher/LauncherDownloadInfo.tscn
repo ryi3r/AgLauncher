@@ -1,0 +1,185 @@
+[gd_scene load_steps=5 format=3 uid="uid://4f6sctywiu8m"]
+
+[ext_resource type="Script" uid="uid://dddasnyqmggig" path="res://Interfaces/Launcher/LauncherDownloadInfo.cs" id="1_owsaq"]
+[ext_resource type="Texture2D" uid="uid://dfux0gfcnbyri" path="res://Assets/Close.svg" id="1_vhu21"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37jtg"]
+bg_color = Color(0, 0, 0, 0.564706)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iluoy"]
+content_margin_top = 6.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Download" type="Panel"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -104.0
+offset_right = 331.0
+offset_bottom = -5.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_37jtg")
+script = ExtResource("1_owsaq")
+
+[node name="Close" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -22.0
+offset_top = 7.0
+offset_right = 498.0
+offset_bottom = 527.0
+grow_horizontal = 0
+scale = Vector2(0.03, 0.03)
+icon = ExtResource("1_vhu21")
+flat = true
+
+[node name="VBox1" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Text" type="Label" parent="VBox1"]
+layout_mode = 2
+text = "Progress Status"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="VBox1"]
+custom_minimum_size = Vector2(315, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_iluoy")
+value = 50.0
+show_percentage = false
+indeterminate = true
+editor_preview_indeterminate = true
+
+[node name="VBox2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -194.0
+offset_top = -66.0
+offset_right = -8.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="EstimatedTime" type="Label" parent="VBox2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Estimated Time"
+horizontal_alignment = 2
+
+[node name="Text" type="Label" parent="VBox2/EstimatedTime"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -21.0
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "00:00:00"
+horizontal_alignment = 2
+
+[node name="TotalSize" type="Label" parent="VBox2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Total Size"
+horizontal_alignment = 2
+
+[node name="Text" type="Label" parent="VBox2/TotalSize"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -21.0
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "100.00 GiB"
+horizontal_alignment = 2
+
+[node name="VBox3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -66.0
+offset_right = 189.0
+offset_bottom = -6.0
+grow_vertical = 0
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Speed" type="Label" parent="VBox3"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Speed"
+
+[node name="Text" type="Label" parent="VBox3/Speed"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -20.0
+offset_right = -25.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1.00 MiB/s"
+
+[node name="Progress" type="Label" parent="VBox3"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Progress"
+
+[node name="Text" type="Label" parent="VBox3/Progress"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -20.0
+offset_right = 144.0
+offset_bottom = 3.0
+grow_vertical = 0
+text = "10.00% (10.00 GiB)"

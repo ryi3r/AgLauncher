@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cflbrfbppny53"]
+
+[ext_resource type="Texture2D" uid="uid://cvetvacxqyb8e" path="res://Assets/Logo Mask.svg" id="1_53oy7"]
+[ext_resource type="Script" uid="uid://dm14ti4e6madu" path="res://Interfaces/Launcher/LauncherGameLogo.cs" id="1_sc0e3"]
+
+[sub_resource type="Gradient" id="Gradient_5epdj"]
+colors = PackedColorArray(0, 0, 0, 1, 0.372549, 0.419608, 0.937255, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iluoy"]
+noise_type = 0
+frequency = 0.001
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_80vpd"]
+color_ramp = SubResource("Gradient_5epdj")
+noise = SubResource("FastNoiseLite_iluoy")
+
+[node name="Logo" type="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+script = ExtResource("1_sc0e3")
+
+[node name="MaskBgnd" type="Sprite2D" parent="."]
+clip_children = 2
+position = Vector2(25, 25)
+scale = Vector2(0.092, 0.092)
+texture = ExtResource("1_53oy7")
+
+[node name="MaskFore" type="Sprite2D" parent="."]
+clip_children = 2
+position = Vector2(25, 25)
+scale = Vector2(0.094, 0.094)
+texture = ExtResource("1_53oy7")
+
+[node name="Logo" type="Sprite2D" parent="MaskFore"]
+texture = SubResource("NoiseTexture2D_80vpd")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+focus_mode = 0
+flat = true

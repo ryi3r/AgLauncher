@@ -1,0 +1,389 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4eidf7xkwd1p"]
+
+[ext_resource type="Script" uid="uid://de56gqs72neoq" path="res://Interfaces/LauncherSettings/LauncherSettings.cs" id="1_cf8og"]
+[ext_resource type="Texture2D" uid="uid://cfvnxg5v501n" path="res://template_texture.tres" id="2_cf8og"]
+
+[node name="LauncherSettings" type="Window"]
+disable_3d = true
+title = "Settings"
+initial_position = 1
+size = Vector2i(1024, 576)
+transient = true
+exclusive = true
+unresizable = true
+popup_window = true
+script = ExtResource("1_cf8og")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1536.0
+offset_bottom = 864.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cf8og")
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Wine" type="Control" parent="Control/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Wine" type="VBoxContainer" parent="Control/TabContainer/Wine"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Repo" type="HBoxContainer" parent="Control/TabContainer/Wine/Wine"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Wine/Wine/Repo"]
+layout_mode = 2
+text = "Repository"
+
+[node name="Link" type="LineEdit" parent="Control/TabContainer/Wine/Wine/Repo"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "Github Link"
+
+[node name="Button" type="Button" parent="Control/TabContainer/Wine/Wine/Repo"]
+layout_mode = 2
+text = "Reload"
+
+[node name="Wine" type="HBoxContainer" parent="Control/TabContainer/Wine/Wine"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Wine/Wine/Wine"]
+layout_mode = 2
+text = "Wine Version"
+
+[node name="Type" type="OptionButton" parent="Control/TabContainer/Wine/Wine/Wine"]
+layout_mode = 2
+focus_mode = 0
+selected = 0
+item_count = 2
+popup/item_0/text = "System"
+popup/item_0/id = 1
+popup/item_1/text = "Custom"
+popup/item_1/id = 0
+
+[node name="Version" type="OptionButton" parent="Control/TabContainer/Wine/Wine/Wine"]
+layout_mode = 2
+focus_mode = 0
+selected = 0
+item_count = 1
+popup/item_0/text = "10.7"
+popup/item_0/id = 0
+
+[node name="Path" type="LineEdit" parent="Control/TabContainer/Wine/Wine/Wine"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "Folder Path"
+
+[node name="Button" type="Button" parent="Control/TabContainer/Wine/Wine/Wine"]
+layout_mode = 2
+text = "Select Path"
+
+[node name="Dxvk" type="HBoxContainer" parent="Control/TabContainer/Wine/Wine"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Wine/Wine/Dxvk"]
+layout_mode = 2
+text = "DXVK Version"
+
+[node name="Type" type="OptionButton" parent="Control/TabContainer/Wine/Wine/Dxvk"]
+layout_mode = 2
+focus_mode = 0
+selected = 0
+item_count = 2
+popup/item_0/text = "Vanilla"
+popup/item_0/id = 1
+popup/item_1/text = "Custom"
+popup/item_1/id = 0
+
+[node name="Version" type="OptionButton" parent="Control/TabContainer/Wine/Wine/Dxvk"]
+layout_mode = 2
+focus_mode = 0
+selected = 0
+item_count = 1
+popup/item_0/text = "2.6"
+popup/item_0/id = 0
+
+[node name="Path" type="LineEdit" parent="Control/TabContainer/Wine/Wine/Dxvk"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "Folder Path"
+
+[node name="Button" type="Button" parent="Control/TabContainer/Wine/Wine/Dxvk"]
+layout_mode = 2
+text = "Select Path"
+
+[node name="ExecuteCommand" type="HBoxContainer" parent="Control/TabContainer/Wine/Wine"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Wine/Wine/ExecuteCommand"]
+layout_mode = 2
+text = "Execute Command"
+
+[node name="Text" type="TextEdit" parent="Control/TabContainer/Wine/Wine/ExecuteCommand"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+text = "%wine% winecfg"
+
+[node name="Control" type="Control" parent="Control/TabContainer/Wine/Wine/ExecuteCommand"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/TabContainer/Wine/Wine/ExecuteCommand/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 65.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Execute"
+
+[node name="General" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="General" type="VBoxContainer" parent="Control/TabContainer/General"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LauncherFolder" type="HBoxContainer" parent="Control/TabContainer/General/General"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/General/General/LauncherFolder"]
+layout_mode = 2
+text = "Installation Folder"
+
+[node name="Path" type="LineEdit" parent="Control/TabContainer/General/General/LauncherFolder"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "Folder Path"
+
+[node name="Button" type="Button" parent="Control/TabContainer/General/General/LauncherFolder"]
+layout_mode = 2
+text = "Select Path"
+
+[node name="Current Game" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Current Game" type="VBoxContainer" parent="Control/TabContainer/Current Game"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameSettings" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game"]
+layout_mode = 2
+
+[node name="Repair" type="Button" parent="Control/TabContainer/Current Game/Current Game/GameSettings"]
+layout_mode = 2
+text = "Repair Game"
+
+[node name="Uninstall" type="Button" parent="Control/TabContainer/Current Game/Current Game/GameSettings"]
+layout_mode = 2
+text = "Uninstall Game"
+
+[node name="GameFolder" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Current Game/Current Game/GameFolder"]
+layout_mode = 2
+text = "Game Folder"
+
+[node name="Path" type="LineEdit" parent="Control/TabContainer/Current Game/Current Game/GameFolder"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "Folder Path"
+
+[node name="Button" type="Button" parent="Control/TabContainer/Current Game/Current Game/GameFolder"]
+layout_mode = 2
+text = "Select Path"
+
+[node name="LaunchScript" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Current Game/Current Game/LaunchScript"]
+layout_mode = 2
+text = "Launch Script"
+
+[node name="Text" type="TextEdit" parent="Control/TabContainer/Current Game/Current Game/LaunchScript"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+text = "%wine% %executable%"
+
+[node name="Sophon" type="VBoxContainer" parent="Control/TabContainer/Current Game/Current Game"]
+layout_mode = 2
+
+[node name="AudioRegions" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game/Sophon"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Current Game/Current Game/Sophon/AudioRegions"]
+layout_mode = 2
+text = "Audio Regions"
+
+[node name="English" type="CheckBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/AudioRegions"]
+layout_mode = 2
+text = "English"
+
+[node name="Japanese" type="CheckBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/AudioRegions"]
+layout_mode = 2
+text = "Japanese"
+
+[node name="Korean" type="CheckBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/AudioRegions"]
+layout_mode = 2
+text = "Korean"
+
+[node name="Chinese" type="CheckBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/AudioRegions"]
+layout_mode = 2
+text = "Chinese"
+
+[node name="DownloadThreads" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game/Sophon"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Current Game/Current Game/Sophon/DownloadThreads"]
+layout_mode = 2
+tooltip_text = "How many threads to use while downloading the game"
+mouse_filter = 1
+text = "Download Threads"
+
+[node name="Value" type="SpinBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/DownloadThreads"]
+layout_mode = 2
+min_value = 1.0
+max_value = 16.0
+value = 1.0
+
+[node name="CheckThreads" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game/Sophon"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Current Game/Current Game/Sophon/CheckThreads"]
+layout_mode = 2
+tooltip_text = "How many threads to use to check the validity of the game files"
+mouse_filter = 1
+text = "Check Threads"
+
+[node name="Value" type="SpinBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/CheckThreads"]
+layout_mode = 2
+min_value = 1.0
+max_value = 16.0
+value = 1.0
+
+[node name="DeleteThreads" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game/Sophon"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Current Game/Current Game/Sophon/DeleteThreads"]
+layout_mode = 2
+tooltip_text = "How many threads to use to delete the game files"
+mouse_filter = 1
+text = "Delete Threads"
+
+[node name="Value" type="SpinBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/DeleteThreads"]
+layout_mode = 2
+min_value = 1.0
+max_value = 16.0
+value = 1.0
+
+[node name="UpdateThreads" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game/Sophon"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Current Game/Current Game/Sophon/UpdateThreads"]
+layout_mode = 2
+tooltip_text = "How many threads to use while downloading updates for the game"
+mouse_filter = 1
+text = "Update Threads"
+
+[node name="Value" type="SpinBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/UpdateThreads"]
+layout_mode = 2
+min_value = 1.0
+max_value = 16.0
+value = 1.0
+
+[node name="UpdateDecodeThreads" type="HBoxContainer" parent="Control/TabContainer/Current Game/Current Game/Sophon"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Control/TabContainer/Current Game/Current Game/Sophon/UpdateDecodeThreads"]
+layout_mode = 2
+tooltip_text = "How many threads to use while decompressing file updates for the game (this number is for each update thread)"
+mouse_filter = 1
+text = "Update Decode Threads"
+
+[node name="Value" type="SpinBox" parent="Control/TabContainer/Current Game/Current Game/Sophon/UpdateDecodeThreads"]
+layout_mode = 2
+min_value = 1.0
+max_value = 16.0
+value = 1.0
+
+[node name="Container" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -341.0
+offset_top = -28.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="Status" type="Label" parent="Control/Container"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="Control/Container"]
+layout_mode = 2
+text = "Apply"
+
+[connection signal="item_selected" from="Control/TabContainer/Wine/Wine/Wine/Type" to="." method="OnWineTypeSelected"]
+[connection signal="item_selected" from="Control/TabContainer/Wine/Wine/Wine/Version" to="." method="OnWineVersionSelected"]
+[connection signal="pressed" from="Control/TabContainer/Wine/Wine/Wine/Button" to="." method="OnSelectWineFolder"]
+[connection signal="item_selected" from="Control/TabContainer/Wine/Wine/Dxvk/Type" to="." method="OnDxvkTypeSelected"]
+[connection signal="item_selected" from="Control/TabContainer/Wine/Wine/Dxvk/Version" to="." method="OnDxvkVersionSelected"]
+[connection signal="pressed" from="Control/TabContainer/Wine/Wine/Dxvk/Button" to="." method="OnSelectDxvkFolder"]
+[connection signal="pressed" from="Control/TabContainer/General/General/LauncherFolder/Button" to="." method="OnSelectInstallationFolder"]
+[connection signal="pressed" from="Control/TabContainer/Current Game/Current Game/GameSettings/Repair" to="." method="OnSelectRepairGame"]
+[connection signal="pressed" from="Control/TabContainer/Current Game/Current Game/GameSettings/Uninstall" to="." method="OnSelectUninstallGame"]
+[connection signal="pressed" from="Control/TabContainer/Current Game/Current Game/GameFolder/Button" to="." method="OnSelectGameFolder"]
+[connection signal="pressed" from="Control/Container/Button" to="." method="OnApplyPressed"]
