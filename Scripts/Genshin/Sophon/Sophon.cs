@@ -262,7 +262,7 @@ public class Sophon(string gameDirectory) : BaseGame(gameDirectory)
                                     foreach (var chunkReader in file!.Patches!.Data!)
                                     {
                                         foreach (var patch in chunkReader.PatchInfo!.Data!)
-                                            gDown.TargetDownload.Add((long)patch.PatchLength!);
+                                            gDown.TargetDownload.Add((long)patch.SizeLimit!);
                                     }
                                 }));
                             }

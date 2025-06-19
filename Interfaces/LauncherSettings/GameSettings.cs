@@ -5,7 +5,7 @@ using System.Linq;
 public class GameSettings
 {
     public string? InstallationFolder;
-    public string LaunchScript = "%wine% %executable%";
+    public string LaunchScript = "WINEPREFIX=%wineprefix% %wine% %executable%";
 
     public GameSettings() { }
 

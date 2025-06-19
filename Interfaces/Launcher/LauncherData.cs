@@ -329,7 +329,8 @@ public partial class LauncherData : HBoxContainer
             switch (selectedGame.State)
             {
                 case GameState.None:
-                    if (InstalledGameVersion != null)
+                    GameCancellationTokens[selectedGame.GameId] = new();
+                    if (InstalledGameVersion != null && InstalledGameVersion == selectedGame.TargetVersion)
                     {
                         var cToken = GameCancellationTokens[selectedGame.GameId];
                         var _ = Task.Run(async () =>
@@ -379,6 +380,7 @@ public partial class LauncherData : HBoxContainer
                                             f.Write(gameSettings.LaunchScript
                                                 .Replace("%wine%", $"{wine.WinePath}/bin/wine64")
                                                 .Replace("%executable%", targetExec)
+                                                .Replace("%wineprefix%", wine.WinePrefixPath)
                                                 .ToUtf8Buffer()
                                             );
                                             f.Close();
@@ -434,7 +436,6 @@ public partial class LauncherData : HBoxContainer
                     break;
                 default:
                     GameCancellationTokens[selectedGame.GameId].Cancel();
-                    GameCancellationTokens[selectedGame.GameId] = new();
                     break;
             }
         }

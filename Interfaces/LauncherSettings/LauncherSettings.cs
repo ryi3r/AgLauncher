@@ -90,6 +90,7 @@ public partial class LauncherSettings : Window
         else
         {
             GameBox.GetNode<LineEdit>("Current Game/GameFolder/Path").Text = GameSettings!.InstallationFolder;
+            GameBox.GetNode<TextEdit>("Current Game/LaunchScript/Text").Text = GameSettings.LaunchScript;
             var sophonNode = GameBox.GetNode<VBoxContainer>("Current Game/Sophon");
             sophonNode.Visible = false;
             if (GameSettings is SophonGameSettings sophon)
